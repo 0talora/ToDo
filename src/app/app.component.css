@@ -1,0 +1,55 @@
+* {
+	text-align: center;
+	box-sizing: border-box;
+}
+
+.contenido {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.titulo {
+	color: blanchedalmond;
+	font-size: 3rem;
+	top: 0;
+	margin: 0 auto;
+	background-color: #181818;
+	width: fit-content;
+	position: sticky;
+	padding: 0.7rem;
+	border-top: none;
+	border-radius: 0 0 18px 18px;
+	margin-bottom: 9rem;
+	z-index: 1000;
+	cursor: pointer;
+	border: 1px solid aqua;
+	border-top: none;
+	transition: transform 0.3s ease;
+}
+
+h1.titulo:hover {
+	transform: scale(1.02);
+}
+
+/*
+@media screen and (orientation: portrait) {
+	.titulo {
+		font-size: 2rem;
+		margin-bottom: 5rem;
+
+	}
+
+	.addTareasComponents input {
+		width: 70%;
+		margin-bottom: 3rem;
+
+	}
+}
+*/
+@media (max-width: 429px) {
+	.titulo {
+		font-size: 0.8em;
+		margin-bottom: 4rem;
+	}
+}

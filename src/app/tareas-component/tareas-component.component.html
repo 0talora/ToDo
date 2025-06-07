@@ -1,0 +1,27 @@
+<div class="addTareasComponents">
+  <input #miInput type="text" (keyup.enter)="addTarea(miInput.value); miInput.value=''"
+    placeholder="Escribe tu tarea" />
+  <button class="btnAddTarea" (click)="addTarea(miInput.value); miInput.value=''">Añadir tarea</button>
+</div>
+<div *ngIf="tareasOrdenadas.length > 0" class="btnBorrarTareasDiv">
+  <button (click)="borrarTodasTareas()">Borrar Tareas</button>
+</div>
+<div class="tareas">
+<div *ngIf="tareasOrdenadas.length === 0" class="sinTareas">
+  <p>No hay tareas disponibles. Añade tu primera tarea del día</p>
+</div>
+
+  <ul>
+    <li id="elementoTarea" *ngFor="let tarea of tareasOrdenadas" [class.completada]="tarea.completada">
+      <span class="iconoCompletada" *ngIf="tarea.completada; else noCompletada">✅</span>
+
+      <ng-template #noCompletada>
+        <span class="iconoCompletada">❌</span>
+      </ng-template>
+
+      <input type="checkbox" [(ngModel)]="tarea.completada" title="Completar Tarea" />
+      <span class="nombreTarea">{{ tarea.nombreTarea | apper }}</span>
+      <button class="btnBorrar" (click)="borrarTarea(tarea)">borrar</button>
+    </li>
+  </ul>
+</div>

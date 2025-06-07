@@ -1,0 +1,265 @@
+.addTareasComponents {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.addTareasComponents input {
+  width: 40%;
+  box-sizing: border-box;
+  font-size: 2rem;
+  cursor: text;
+  height: 5rem;
+  background-color: rgb(221, 221, 221);
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+
+.addTareasComponents input:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px aqua;
+}
+
+.addTareasComponents input:focus {
+  box-shadow: 0 5px 15px yellow;
+}
+
+.addTareasComponents button {
+  width: 12rem;
+  box-sizing: border-box;
+  font-size: 1.7rem;
+  cursor: pointer;
+  height: 5rem;
+  background-color: rgb(255, 255, 255);
+  border-radius: 30px;
+  border: none;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease, font-size 0.3s ease;
+}
+
+.addTareasComponents button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px yellow;
+  font-size: 1.7rem;
+}
+
+.btnBorrarTareasDiv{
+  display: inline-flex;
+  justify-content: center;
+}
+
+.btnBorrarTareasDiv button {
+  margin: 2rem;
+  padding: 1rem;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, font-size 0.3s ease;
+  background-color: crimson;
+  border-radius: 3rem;
+  border: none;
+}
+
+.btnBorrarTareasDiv button:hover{
+  transform: scale(1.18);
+  box-shadow: 0 0px 15px red;
+}
+
+.sinTareas {
+  display: inline-block;
+  background-color: #222428;
+  border-radius: 1.5rem;
+  border: 1px solid rgb(255, 0, 0);
+  box-shadow: 0 0px 15px red;
+  cursor: default;
+  transition: box-shadow 0.25s ease;
+  margin-top: 8rem;
+}
+
+.sinTareas:hover {
+  box-shadow: 0px 0px 20px 5px red;
+
+}
+
+.sinTareas p {
+  color: blanchedalmond;
+  margin: 1.5rem;
+}
+
+.tareas {
+  width: 100%;
+}
+
+.tareas ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+}
+
+#elementoTarea {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  list-style-type: none;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  padding: 1rem;
+  background-color: #222428;
+  border-radius: 2rem;
+  border: 1px solid white;
+  max-width: 70%;
+  gap: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+#elementoTarea.completada {
+  color: gray;
+  opacity: 0.6;
+  user-select: none;
+  background-color: #2a2a2a;
+  border: 1px solid green;
+}
+
+#elementoTarea.completada:hover {
+  box-shadow: 0 5px 15px green;
+}
+
+#elementoTarea.completada .nombreTarea {
+  text-decoration: line-through;
+}
+
+#elementoTarea:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px aqua;
+}
+
+.nombreTarea {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 2rem;
+  margin: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.btnBorrar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  height: 2.3rem;
+  width: 4.3rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.btnBorrar:hover {
+  transform: scale(1.18);
+}
+
+input[type="checkbox"] {
+  flex-shrink: 0;
+  appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 2px solid darkgrey;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+input[type="checkbox"]:hover {
+  transform: scale(1.3);
+  border: 2px solid yellow;
+  border-radius: 4px;
+}
+
+
+.iconoCompletada {
+  font-size: 2rem;
+}
+
+@media (max-width: 429px) {
+  .btnAddTarea:hover,
+  .btnBorrar:hover,
+  #elementoTarea:hover,
+  input[type="checkbox"]:hover,
+  .addTareasComponents input:hover {
+    box-shadow: none !important;
+  }
+
+  .addTareasComponents {
+    margin: 0 1rem 0rem 1rem;
+    gap: 0.8rem;
+  }
+
+  .addTareasComponents input {
+    width: 80%;
+    font-size: 1rem;
+    height: 3rem;
+    border-radius: 20px;
+  }
+
+  .addTareasComponents button {
+    width: 7rem;
+    font-size: 1rem;
+    height: 3rem;
+    border-radius: 20px;
+    cursor: text;
+  }
+
+  .addTareasComponents button:hover {
+    font-size: 1rem;
+  }
+
+  .sinTareas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    width: 80%;
+    height: 4rem;
+    margin-top: 4rem;
+  }
+
+  .sinTareas p {
+    margin: 0;
+  }
+
+  #elementoTarea {
+    height: 2rem;
+    margin-bottom: 1rem;
+    max-width: 85%;
+  }
+#elementoTarea:hover {
+  transform: none;
+  box-shadow: none;
+}
+  .nombreTarea {
+    font-size: 1.2rem;
+  }
+
+  .btnBorrar {
+    height: 2rem;
+    width: 4rem;
+  }
+
+  .iconoCompletada {
+    font-size: 1.5rem;
+  }
+}
