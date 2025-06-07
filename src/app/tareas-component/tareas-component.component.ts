@@ -8,7 +8,7 @@ import { ApperPipe } from '../apper.pipe';
 
 @Component({
   selector: 'app-tareas-component',
-  imports: [RouterOutlet, CommonModule, FormsModule, TareasComponentComponent, ApperPipe],
+  imports: [CommonModule, FormsModule, ApperPipe],
   templateUrl: './tareas-component.component.html',
   styleUrl: './tareas-component.component.css'
 })
