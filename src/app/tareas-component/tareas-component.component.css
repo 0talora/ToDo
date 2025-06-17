@@ -6,6 +6,40 @@
 
 }
 
+.toast {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  color: white;
+  font-weight: bold;
+  opacity: 0.8;
+  z-index: 9999;
+  user-select: none;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.toast-visible {
+  opacity: 0.95;
+  visibility: visible;
+}
+
+.toast-oculto {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.toast-success {
+  background-color: #2aac2e;
+}
+
+.toast-error {
+  background-color: rgb(255, 0, 0);
+}
+
 .addTareasComponents input {
   width: 40%;
   box-sizing: border-box;
@@ -18,7 +52,6 @@
   outline: none;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
 }
 
 .addTareasComponents input:hover {
@@ -49,7 +82,7 @@
   font-size: 1.7rem;
 }
 
-.btnBorrarTareasDiv{
+.btnBorrarTareasDiv {
   display: inline-flex;
   justify-content: center;
 }
@@ -66,7 +99,7 @@
   border: none;
 }
 
-.btnBorrarTareasDiv button:hover{
+.btnBorrarTareasDiv button:hover {
   transform: scale(1.18);
   box-shadow: 0 0px 15px red;
 }
@@ -138,7 +171,7 @@
 }
 
 #elementoTarea:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   box-shadow: 0 5px 15px aqua;
 }
 
@@ -194,7 +227,14 @@ input[type="checkbox"]:hover {
   font-size: 2rem;
 }
 
+@media (min-width: 430px) {
+  .toast {
+    top: 8rem;
+  }
+}
+
 @media (max-width: 429px) {
+
   .btnAddTarea:hover,
   .btnBorrar:hover,
   #elementoTarea:hover,
@@ -208,6 +248,15 @@ input[type="checkbox"]:hover {
     gap: 0.8rem;
   }
 
+  .toast {
+    bottom: 1rem;
+  }
+
+  .toast-error {
+    width: 60%;
+    max-width: 600px;
+  }
+  
   .addTareasComponents input {
     width: 80%;
     font-size: 1rem;
@@ -242,16 +291,18 @@ input[type="checkbox"]:hover {
   }
 
   #elementoTarea {
-    height: 2rem;
+    min-height: 2rem;
     margin-bottom: 1rem;
     max-width: 85%;
   }
-#elementoTarea:hover {
-  transform: none;
-  box-shadow: none;
-}
+
+  #elementoTarea:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
   .nombreTarea {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .btnBorrar {

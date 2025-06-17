@@ -1,15 +1,27 @@
 <div class="addTareasComponents">
+
+  <div class="toast" [ngClass]="{
+    'toast-visible': mostrarMensaje,
+    'toast-oculto': !mostrarMensaje,
+    'toast-success': toastTipo === 'success',
+    'toast-error': toastTipo === 'error'
+  }">
+    {{ mensajeToast }}
+  </div>
+
   <input #miInput type="text" (keyup.enter)="addTarea(miInput.value); miInput.value=''"
     placeholder="Escribe tu tarea" />
   <button class="btnAddTarea" (click)="addTarea(miInput.value); miInput.value=''">Añadir tarea</button>
 </div>
+
 <div *ngIf="tareasOrdenadas.length > 0" class="btnBorrarTareasDiv">
   <button (click)="borrarTodasTareas()">Borrar Tareas</button>
 </div>
+
 <div class="tareas">
-<div *ngIf="tareasOrdenadas.length === 0" class="sinTareas">
-  <p>No hay tareas disponibles. Añade tu primera tarea del día</p>
-</div>
+  <div *ngIf="tareasOrdenadas.length === 0" class="sinTareas">
+    <p>No hay tareas disponibles. Añade tu primera tarea del día</p>
+  </div>
 
   <ul>
     <li id="elementoTarea" *ngFor="let tarea of tareasOrdenadas" [class.completada]="tarea.completada">
