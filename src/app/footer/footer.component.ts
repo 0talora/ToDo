@@ -1,15 +1,11 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { TaskLanguageService } from '../task-language.service';
 
 @Component({
   selector: 'app-footer',
-  standalone: true,
-  imports: [],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
-
+  readonly i18n = inject(TaskLanguageService);
 }

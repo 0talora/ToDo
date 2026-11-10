@@ -1,56 +1,39 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
-import { AdminTareasServiceService } from '../admin-tareas-service.service';
+import { AdminTareasServiceService, Tarea, TaskNotice } from '../admin-tareas-service.service';
 import { ApperPipe } from '../apper.pipe';
-import { Subscription } from 'rxjs';
+import { TaskLanguageService } from '../task-language.service';
 
 @Component({
   selector: 'app-tareas-component',
-  standalone: true,
-  imports: [CommonModule, FormsModule, ApperPipe],
+  imports: [FormsModule, ApperPipe],
   templateUrl: './tareas-component.component.html',
-  styleUrls: ['./tareas-component.component.css']
+  styleUrl: './tareas-component.component.css'
 })
-export class TareasComponentComponent implements OnInit, OnDestroy {
+export class TareasComponentComponent {
+  readonly adminTareas = inject(AdminTareasServiceService);
+  readonly i18n = inject(TaskLanguageService);
+  notice: TaskNotice | null = null;
 
-  mostrarMensaje = false;
-  mensajeToast = '';
-  toastTipo: 'success' | 'warning' | 'error' = 'success';
-  timeoutId: any;
-
-  private subNotificacion?: Subscription;
-
-  constructor(private adminTareasService: AdminTareasServiceService) { }
-
-  ngOnInit() {
-    this.subNotificacion = this.adminTareasService.notificacion.subscribe(({ mensaje, tipo }) => {
-      this.mostrarMensaje = true;
-      this.mensajeToast = mensaje;
-      this.toastTipo = tipo;
-
-      clearTimeout(this.timeoutId);
-      this.timeoutId = setTimeout(() => this.mostrarMensaje = false, 2000);
+  constructor() {
+    this.adminTareas.notificacion.pipe(takeUntilDestroyed()).subscribe(notice => {
+      this.notice = notice;
     });
   }
 
-  ngOnDestroy() {
-    this.subNotificacion?.unsubscribe();
+  addTarea(input: HTMLInputElement): void {
+    if (this.adminTareas.addTarea(input.value)) input.value = '';
+    input.focus();
   }
 
-  addTarea(nombre: string) {
-    this.adminTareasService.addTarea(nombre);
+  borrarTarea(tarea: Tarea, input: HTMLInputElement): void {
+    this.adminTareas.borrarTarea(tarea);
+    input.focus();
   }
 
-  borrarTarea(tarea: { nombreTarea: string; completada: boolean }) {
-    this.adminTareasService.borrarTarea(tarea);
-  }
-
-  get tareasOrdenadas() {
-    return this.adminTareasService.tareasOrdenadas();
-  }
-
-  borrarTodasTareas() {
-    this.adminTareasService.borrarTodasTareas();
+  borrarTodasTareas(input: HTMLInputElement): void {
+    this.adminTareas.borrarTodasTareas();
+    input.focus();
   }
 }

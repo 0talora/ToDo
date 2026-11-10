@@ -1,39 +1,31 @@
-<div class="addTareasComponents">
+<section aria-labelledby="task-list">
+  <h2 id="task-list">{{ i18n.strings.list }}</h2>
+  <form (ngSubmit)="addTarea(taskInput)">
+    <label for="task">{{ i18n.strings.task }}</label>
+    <div class="acciones">
+      <input #taskInput id="task" type="text">
+      <button class="principal" type="submit">{{ i18n.strings.add }}</button>
+    </div>
+  </form>
 
-  <div class="toast" [ngClass]="{
-    'toast-visible': mostrarMensaje,
-    'toast-oculto': !mostrarMensaje,
-    'toast-success': toastTipo === 'success',
-    'toast-error': toastTipo === 'error'
-  }">
-    {{ mensajeToast }}
-  </div>
-
-  <input #miInput type="text" (keyup.enter)="addTarea(miInput.value); miInput.value=''"
-    placeholder="Escribe tu tarea" />
-  <button class="btnAddTarea" (click)="addTarea(miInput.value); miInput.value=''">Añadir tarea</button>
-</div>
-
-<div *ngIf="tareasOrdenadas.length > 0" class="btnBorrarTareasDiv">
-  <button (click)="borrarTodasTareas()">Borrar Tareas</button>
-</div>
-
-<div class="tareas">
-  <div *ngIf="tareasOrdenadas.length === 0" class="sinTareas">
-    <p>No hay tareas disponibles. Añade tu primera tarea del día</p>
-  </div>
+  <p class="estado" role="status">{{ notice ? i18n.strings[notice] : '' }}</p>
 
   <ul>
-    <li id="elementoTarea" *ngFor="let tarea of tareasOrdenadas" [class.completada]="tarea.completada">
-      <span class="iconoCompletada" *ngIf="tarea.completada; else noCompletada">✅</span>
-
-      <ng-template #noCompletada>
-        <span class="iconoCompletada">❌</span>
-      </ng-template>
-
-      <input type="checkbox" [(ngModel)]="tarea.completada" title="Completar Tarea" />
-      <span class="nombreTarea">{{ tarea.nombreTarea | apper }}</span>
-      <button class="btnBorrar" (click)="borrarTarea(tarea)">borrar</button>
-    </li>
+    @for (tarea of adminTareas.tareasOrdenadas(); track tarea) {
+      <li [class.completada]="tarea.completada">
+        <label>
+          <input type="checkbox" [ngModel]="tarea.completada" (ngModelChange)="adminTareas.cambiarEstado(tarea, $event)">
+          <span>{{ tarea.nombreTarea | apper }}</span>
+        </label>
+        <button type="button" [attr.aria-label]="i18n.strings.remove + ' ' + tarea.nombreTarea"
+          (click)="borrarTarea(tarea, taskInput)">{{ i18n.strings.remove }}</button>
+      </li>
+    }
   </ul>
-</div>
+
+  @if (adminTareas.tareas.length) {
+    <button class="borrar-todas" type="button" (click)="borrarTodasTareas(taskInput)">{{ i18n.strings.clear }}</button>
+  } @else {
+    <p class="vacio">{{ i18n.strings.empty }}</p>
+  }
+</section>

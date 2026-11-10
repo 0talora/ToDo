@@ -1,7 +1,31 @@
-<div class="contenido">
-  <h1 class="titulo" (click)="scrollArriba()">Bienvenido a tu administrador de tareas</h1>
-  <app-tareas-component></app-tareas-component>
-</div>
-<app-footer></app-footer>
+<header class="cabecera">
+  <div class="barra">
+    <span class="marca">otalora</span>
+    <div class="idioma">
+      <label for="language">{{ i18n.strings.language }}</label>
+      <select id="language" [ngModel]="i18n.language" (ngModelChange)="i18n.changeLanguage($event)">
+        @for (code of languageCodes; track code) {
+          <option [value]="code" [attr.lang]="code">{{ languages[code] }}</option>
+        }
+      </select>
+    </div>
+  </div>
+</header>
 
+<main class="contenedor">
+  <header class="introduccion">
+    <div>
+      <h1>{{ i18n.strings.title }}</h1>
+      <p>{{ i18n.strings.description }}</p>
+    </div>
+    <div class="emblema" aria-hidden="true">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+        <rect x="6" y="5" width="20" height="23" rx="3"/>
+        <path d="m11 16 3 3 7-7"/>
+      </svg>
+    </div>
+  </header>
+  <app-tareas-component />
+</main>
+<app-footer />
 <router-outlet />
