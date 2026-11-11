@@ -1,3 +1,9 @@
-<footer>
+<footer class="site-footer">
+  <nav class="idiomas" [attr.aria-label]="i18n.strings.language">
+    @for (code of i18n.languageCodes; track code) {
+      <a [href]="i18n.languagePath(code)" [attr.lang]="code" [attr.hreflang]="code"
+        [attr.aria-current]="code === i18n.language ? 'page' : null">{{ i18n.languages[code] }}</a>
+    }
+  </nav>
   <p>{{ i18n.strings.developed }} <a href="https://angular.dev/">Angular</a> {{ i18n.strings.by }}</p>
 </footer>

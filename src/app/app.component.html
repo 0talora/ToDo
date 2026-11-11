@@ -32,12 +32,6 @@
       <p>{{ paragraph }}</p>
     }
   </section>
-  <nav class="search-languages" [attr.aria-label]="i18n.strings.language">
-    @for (code of languageCodes; track code) {
-      <a [href]="i18n.languagePath(code)" [attr.lang]="code" [attr.hreflang]="code"
-        [attr.aria-current]="code === i18n.language ? 'page' : null">{{ languages[code] }}</a>
-    }
-  </nav>
 </main>
 <app-footer />
 <router-outlet />

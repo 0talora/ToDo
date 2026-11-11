@@ -3,8 +3,7 @@ import { TaskLanguageService } from '../task-language.service';
 
 @Component({
   selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css'
+  templateUrl: './footer.component.html'
 })
 export class FooterComponent {
   readonly i18n = inject(TaskLanguageService);

@@ -47,6 +47,8 @@ export class TaskLanguageService {
   private readonly document = inject(DOCUMENT);
   private readonly title = inject(Title);
   private readonly meta = inject(Meta);
+  readonly languages = languages;
+  readonly languageCodes = Object.keys(languages) as Language[];
   language = this.detectLanguage();
 
   get strings() {
