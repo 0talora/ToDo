@@ -2,7 +2,7 @@ section {
   padding: clamp(1rem, 4vw, 2rem);
   border: 1px solid #424242;
   border-radius: 1.5rem;
-  background: #101010;
+  background: light-dark(#fff, #101010);
 }
 
 h2 {
@@ -38,16 +38,16 @@ input[type="text"] {
   padding: .55rem .75rem;
   border: 1px solid #888;
   border-radius: .65rem;
-  background: #181818;
-  color: #fff;
+  background: light-dark(#f8f7f4, #181818);
+  color: light-dark(#222, #fff);
 }
 
 button {
   padding: .55rem .85rem;
   border: 1px solid #888;
   border-radius: 999px;
-  background: #242424;
-  color: #fff;
+  background: light-dark(#eeebe5, #242424);
+  color: light-dark(#222, #fff);
   cursor: pointer;
   overflow-wrap: anywhere;
 }
@@ -70,7 +70,7 @@ button:hover {
 .estado {
   min-height: 1.5em;
   margin: .6rem 0;
-  color: #ddd;
+  color: light-dark(#3a3833, #ddd);
   font: .875rem/1.5 var(--mono);
 }
 
@@ -90,7 +90,7 @@ li {
   padding: .55rem;
   border: 1px solid #575757;
   border-radius: .65rem;
-  background: #181818;
+  background: light-dark(#f8f7f4, #181818);
 }
 
 li label {
@@ -112,18 +112,18 @@ input[type="checkbox"] {
 }
 
 .completada span {
-  color: #bbb;
+  color: light-dark(#524e47, #bbb);
   text-decoration: line-through;
 }
 
 .vacio {
   margin: 0;
-  color: #ccc;
+  color: light-dark(#484540, #ccc);
 }
 
 .borrar-todas {
   margin-block-start: 1rem;
-  color: #ff888c;
+  color: light-dark(#a81928, #ff888c);
 }
 
 @media (max-width: 32rem) {

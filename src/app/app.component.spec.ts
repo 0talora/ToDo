@@ -21,7 +21,7 @@ describe('AppComponent', () => {
       const page: HTMLElement = fixture.nativeElement;
       expect(page.querySelector('h1')?.textContent).toBe('Gestionnaire de tâches');
 
-      const select = page.querySelector('select')!;
+      const select = page.querySelector('#language')!;
       select.value = 'de';
       select.dispatchEvent(new Event('change'));
       fixture.detectChanges();

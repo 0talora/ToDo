@@ -1,3 +1,4 @@
+import { ThemePreference } from './theme-preference';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
@@ -12,6 +13,7 @@ import { languages, TaskLanguageService } from './task-language.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  readonly themePreference = inject(ThemePreference);
   readonly i18n = inject(TaskLanguageService);
   readonly languages = languages;
   readonly languageCodes = Object.keys(languages) as (keyof typeof languages)[];
