@@ -1,0 +1,46 @@
+{
+  "es": {
+    "h1": "Lista de tareas online",
+    "title": "Lista de tareas online gratis y sin registro | Otalora",
+    "description": "Añade pendientes, marca las tareas completadas y retoma tu lista cuando quieras. El gestor guarda las tareas en tu navegador.",
+    "heading": "Cómo organizar tu lista de pendientes",
+    "paragraphs": [
+      "Escribe el nombre de una tarea y pulsa Añadir tarea. Marca la casilla cuando la termines o borra la tarea si ya no la necesitas.",
+      "Abre esta web en el mismo navegador para recuperar tu lista. Las tareas se guardan localmente, así que no se sincronizan entre dispositivos y se pierden si borras los datos de este sitio."
+    ],
+    "noscript": "Activa JavaScript para gestionar tus tareas."
+  },
+  "en": {
+    "h1": "Task manager",
+    "title": "Free Online To-Do List and Task Manager | Otalora",
+    "description": "Add tasks, check off completed items and come back to your to-do list. Your tasks are stored in your browser, with no account required.",
+    "heading": "How to organize your to-do list",
+    "paragraphs": [
+      "Enter a task name and choose Add task. Check the box when you finish or delete the task if you no longer need it.",
+      "Use the same browser to reopen your list. Tasks are stored locally, so they do not sync across devices and are removed if you clear this site’s data."
+    ],
+    "noscript": "Enable JavaScript to manage your tasks."
+  },
+  "fr": {
+    "h1": "Gestionnaire de tâches",
+    "title": "Liste de tâches en ligne gratuite et sans compte | Otalora",
+    "description": "Ajoutez des tâches, cochez celles qui sont terminées et retrouvez votre liste dans votre navigateur.",
+    "heading": "Comment organiser votre liste de tâches",
+    "paragraphs": [
+      "Saisissez le nom de la tâche et cliquez sur Ajouter une tâche. Cochez la case quand elle est terminée ou supprimez-la si elle n’est plus nécessaire.",
+      "Retrouvez votre liste dans le même navigateur. Elle ne se synchronise pas entre appareils et disparaît si vous effacez les données de ce site."
+    ],
+    "noscript": "Activez JavaScript pour gérer vos tâches."
+  },
+  "de": {
+    "h1": "Aufgabenverwaltung",
+    "title": "Kostenlose Online-Aufgabenverwaltung | Otalora",
+    "description": "Füge Aufgaben hinzu, hake erledigte Einträge ab und öffne deine Liste später im selben Browser.",
+    "heading": "So organisierst du deine To-do-Liste",
+    "paragraphs": [
+      "Gib einen Aufgabennamen ein und wähle Aufgabe hinzufügen. Hake den Eintrag ab, sobald er erledigt ist, oder lösche ihn, wenn du ihn nicht mehr brauchst.",
+      "Die Liste bleibt im selben Browser. Sie wird nicht zwischen Geräten synchronisiert und geht verloren, wenn du die Daten dieser Website löschst."
+    ],
+    "noscript": "Aktiviere JavaScript, um deine Aufgaben zu verwalten."
+  }
+}

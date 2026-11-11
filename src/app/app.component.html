@@ -26,6 +26,18 @@
     </div>
   </header>
   <app-tareas-component />
+  <section class="search-guide">
+    <h2>{{ i18n.strings.heading }}</h2>
+    @for (paragraph of i18n.strings.paragraphs; track $index) {
+      <p>{{ paragraph }}</p>
+    }
+  </section>
+  <nav class="search-languages" [attr.aria-label]="i18n.strings.language">
+    @for (code of languageCodes; track code) {
+      <a [href]="i18n.languagePath(code)" [attr.lang]="code" [attr.hreflang]="code"
+        [attr.aria-current]="code === i18n.language ? 'page' : null">{{ languages[code] }}</a>
+    }
+  </nav>
 </main>
 <app-footer />
 <router-outlet />

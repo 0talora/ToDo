@@ -57,3 +57,7 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Production deployment
+
+Run `npm run build` and publish `dist/admin-tareas/browser`. This generates pages for Spanish, English, French and German, plus `robots.txt` and `sitemap.xml`. Serve directory indexes and return HTTP 404 for unknown paths.
